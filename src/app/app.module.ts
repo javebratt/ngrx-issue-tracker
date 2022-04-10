@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 import { modules } from './modules/modules';
+import { IssuesComponent } from './components/issues/issues/issues.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, IssuesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
