@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/store';
 import { CounterComponent } from './components/counter/counter.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { modules } from './modules/modules';
 
 @NgModule({
   declarations: [AppComponent, CounterComponent],
@@ -15,10 +15,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument({
-      maxAge: 20,
-      logOnly: environment.production,
-    }),
+    ...modules,
   ],
   providers: [],
   bootstrap: [AppComponent],
