@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store';
+import { reducers, metaReducers } from './store';
 import { modules } from './modules/modules';
 import { IssuesComponent } from './components/issues/issues/issues.component';
 import { NewIssueComponent } from './components/issues/new-issue/new-issue.component';
@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, { metaReducers }),
     ...modules,
   ],
   providers: [],
