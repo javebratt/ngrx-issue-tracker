@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { RootState } from '../../../store';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as IssueActions from '../../../store/issue/issue.actions';
-import { randomId } from 'src/app/utils/id.helper';
 
 @Component({
   selector: 'app-new-issue',
