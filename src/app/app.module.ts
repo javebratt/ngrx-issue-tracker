@@ -9,9 +9,11 @@ import { modules } from './modules/modules';
 import { IssuesComponent } from './components/issues/issues/issues.component';
 import { NewIssueComponent } from './components/issues/new-issue/new-issue.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IssueListComponent } from './components/issues/issue-list/issue-list.component';
+import { IssueDetailComponent } from './components/issues/issue-detail/issue-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, IssuesComponent, NewIssueComponent],
+  declarations: [AppComponent, IssuesComponent, NewIssueComponent, IssueListComponent, IssueDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

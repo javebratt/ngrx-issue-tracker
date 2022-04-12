@@ -1,8 +1,7 @@
-import { createReducer, on } from '@ngrx/store';
-import { initialState } from './issue.state';
+import { Action, createReducer, on } from '@ngrx/store';
+import { initialState, IssueState } from './issue.state';
 import * as IssueActions from './issue.actions';
 import produce from 'immer';
-import { loggingMetaReducer } from '../meta-reducers';
 
 export const reducer = createReducer(
   initialState,
@@ -13,7 +12,21 @@ export const reducer = createReducer(
         resolved: false,
       };
     })
-  )
+  ),
+  on(IssueActions.search, (state, { text }) => ({
+    ...state,
+    filter: {
+      ...state.filter,
+      text,
+    },
+  }))
 );
 
-export const issueReducer = loggingMetaReducer(reducer);
+export const issueReducer = (state: IssueState, action: Action): IssueState => {
+  try {
+    return reducer(state, action);
+  } catch (error) {
+    console.error(error);
+    return state;
+  }
+};

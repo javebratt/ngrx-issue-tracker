@@ -11,9 +11,11 @@ export interface Issues {
 export interface IssueState {
   entities: Issues;
   filter: Filter;
+  loaded: boolean;
 }
 
 export const initialState: IssueState = {
   entities: {},
   filter: { text: '' },
+  loaded: false,
 };

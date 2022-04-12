@@ -1,0 +1,16 @@
+<input
+  placeholder="Search ..."
+  #searchInput
+  type="text"
+  (input)="search(searchInput.value)"
+/>
+
+<ul>
+  <li *ngFor="let issue of issues$ | async">
+    <h3>
+      <a [routerLink]="issue.id">{{ issue.title }}</a>
+      <small>{{ issue.priority }}</small>
+    </h3>
+    <p>{{ issue.description }}</p>
+  </li>
+</ul>
