@@ -19,7 +19,20 @@ export const reducer = createReducer(
       ...state.filter,
       text,
     },
-  }))
+  })),
+  on(IssueActions.resolve, (state, { issueId }) => {
+    const issue = state.entities[issueId];
+    return {
+      ...state,
+      entities: {
+        ...state.entities,
+        [issueId]: {
+          ...issue,
+          resolved: true,
+        },
+      },
+    };
+  })
 );
 
 export const issueReducer = (state: IssueState, action: Action): IssueState => {

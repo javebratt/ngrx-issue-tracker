@@ -16,7 +16,9 @@ export class IssueDetailComponent {
 
   constructor(private route: ActivatedRoute, private store: Store) {
     this.issue$ = this.route.params.pipe(
-      switchMap((params) => this.store.select(fromIssue.selectOne, params.id))
+      switchMap((params) =>
+        this.store.select(fromIssue.selectOne, params['id'])
+      )
     );
   }
 }

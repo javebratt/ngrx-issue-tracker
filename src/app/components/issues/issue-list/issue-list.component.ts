@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Issue } from 'src/app/models/issue';
@@ -12,7 +12,7 @@ import { skipWhile } from 'rxjs/operators';
   templateUrl: './issue-list.component.html',
   styleUrls: ['./issue-list.component.scss'],
 })
-export class IssueListComponent implements OnInit {
+export class IssueListComponent {
   issues$: Observable<Issue[]>;
   constructor(private store: Store<RootState>) {
     this.issues$ = this.store.pipe(
@@ -25,5 +25,7 @@ export class IssueListComponent implements OnInit {
     this.store.dispatch(IssueActions.search({ text }));
   }
 
-  ngOnInit(): void {}
+  resolve(issue: Issue): void {
+    this.store.dispatch(IssueActions.resolve({ issueId: issue.id }));
+  }
 }
